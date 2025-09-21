@@ -43,3 +43,10 @@ export type TMotion = {
   delay: number;
   duration: number;
 };
+import * as THREE from 'three';
+
+declare global {
+  interface Window {
+    THREE: typeof THREE;
+  }
+}

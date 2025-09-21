@@ -1,13 +1,15 @@
-import { useState, useRef, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, Preload } from "@react-three/drei";
-import { random } from "maath";
-import { TypedArray } from "three";
+import { useState, useRef, Suspense } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Points, PointMaterial, Preload } from '@react-three/drei';
+import { random } from 'maath';
+import { Points as ThreePoints } from 'three';
 
 const Stars = (props: any) => {
-  const ref = useRef<THREE.Points>();
-  const [sphere] = useState<TypedArray>(() =>
-    random.inSphere(new Float32Array(5001), { radius: 1.2 })
+  const ref = useRef<ThreePoints>(null);
+
+  // Explicit type assertion here
+  const [sphere] = useState<Float32Array>(
+    () => random.inSphere(new Float32Array(5001), { radius: 1.2 }) as Float32Array
   );
 
   useFrame((_state, delta) => {
@@ -24,7 +26,7 @@ const Stars = (props: any) => {
           transparent
           color="#f272c8"
           size={0.002}
-          sizeAttenuation={true}
+          sizeAttenuation
           depthWrite={false}
         />
       </Points>
@@ -39,7 +41,6 @@ const StarsCanvas = () => {
         <Suspense fallback={null}>
           <Stars />
         </Suspense>
-
         <Preload all />
       </Canvas>
     </div>
