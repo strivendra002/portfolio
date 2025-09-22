@@ -122,17 +122,23 @@
 
 // export default SectionWrapper(Contact, "contact");
 
-
 //import React from "react";
-import React from "react";
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaFilePdf } from "react-icons/fa";
+import React from 'react';
+import { motion } from 'framer-motion';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaFilePdf,
+} from 'react-icons/fa';
 
-import { EarthCanvas } from "../canvas";
-import { SectionWrapper } from "../../hoc";
-import { slideIn } from "../../utils/motion";
-import { Header } from "../atoms/Header";
-import { config } from "../../constants/config";
+import { EarthCanvas } from '../canvas';
+import { SectionWrapper } from '../../hoc';
+import { slideIn } from '../../utils/motion';
+import { Header } from '../atoms/Header';
+import { config } from '../../constants/config';
 
 // ✅ Don't name this `Header`
 // type HeaderProps = {
@@ -146,19 +152,15 @@ const Contact: React.FC = () => {
     <div className="flex flex-col-reverse gap-10 overflow-hidden xl:mt-12 xl:flex-row">
       {/* Left side - Contact Info */}
       <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
+        variants={slideIn('left', 'tween', 0.2, 1)}
         className="bg-black-100 flex-[0.75] rounded-2xl p-8"
       >
-                <Header useMotion={false} {...config.contact} />
-
+        <Header useMotion={false} {...config.contact} />
 
         <div className="mt-8 flex flex-col gap-6 text-white">
           <p className="flex items-center gap-3">
             <FaEnvelope className="text-secondary text-xl" />
-            <a
-              href="mailto:strivendra002@gmail.com"
-              className="hover:underline"
-            >
+            <a href="mailto:strivendra002@gmail.com" className="hover:underline">
               strivendra002@gmail.com
             </a>
           </p>
@@ -167,8 +169,8 @@ const Contact: React.FC = () => {
             <FaPhone className="text-secondary text-xl" />
             <a href="tel:+919752618573" className="hover:underline">
               +91 97526 18573
-            </a>{" "}
-            |{" "}
+            </a>{' '}
+            |{' '}
             <a href="tel:+916267380641" className="hover:underline">
               +91 62673 80641
             </a>
@@ -203,22 +205,21 @@ const Contact: React.FC = () => {
             </a>
           </p>
           <p className="flex items-center gap-3">
-  <FaFilePdf className="text-secondary text-xl" />
-  <a
-    href="https://drive.google.com/file/d/1VnCtCEM92QpQ_Y0dTwL5vk-UrVD2B0ty/view?usp=sharing"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:underline"
-  >
-    View Resume (PDF)
-  </a>
-</p>
+            <FaFilePdf className="text-secondary text-xl" />
+            <a
+              href="https://drive.google.com/uc?export=download&id=1kHxV0wbwmTTYbFiDtE4wqalmuD-nyGmg"
+              download
+              className="hover:underline"
+            >
+              Download Resume (PDF)
+            </a>
+          </p>
         </div>
       </motion.div>
 
       {/* Right side - Earth Canvas */}
       <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
+        variants={slideIn('right', 'tween', 0.2, 1)}
         className="h-[350px] md:h-[550px] xl:h-auto xl:flex-1"
       >
         <EarthCanvas />
@@ -227,6 +228,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default SectionWrapper(Contact, "contact");
-
-
+export default SectionWrapper(Contact, 'contact');
