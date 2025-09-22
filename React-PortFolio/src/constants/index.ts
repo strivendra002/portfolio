@@ -22,8 +22,8 @@ import {
   nodejs,
   mongodb,
   git,
-  figma,
-  docker,
+  // figma,
+  // docker,
   //meta,
   //starbucks,
   //tesla,
@@ -44,16 +44,34 @@ import {
 
 export const navLinks: TNavLink[] = [
   {
+    id: 'home',
+    title: 'Home',
+  },
+  {
     id: 'about',
     title: 'About',
   },
+
   {
     id: 'work',
     title: 'Work',
   },
   {
+    id: 'skills',
+    title: 'Skills',
+  },
+  {
+    id: 'projects',
+    title: 'Project',
+  },
+  {
     id: 'contact',
     title: 'Contact',
+  },
+
+  {
+    id: 'resume',
+    title: 'Resume',
   },
 ];
 
@@ -121,14 +139,14 @@ const technologies: TTechnology[] = [
     name: 'git',
     icon: git,
   },
-  {
-    name: 'figma',
-    icon: figma,
-  },
-  {
-    name: 'docker',
-    icon: docker,
-  },
+  // {
+  //   name: 'figma',
+  //   icon: figma,
+  // },
+  // {
+  //   name: 'docker',
+  //   icon: docker,
+  // },
 ];
 
 const experiences: TExperience[] = [
@@ -234,7 +252,7 @@ const projects: TProject[] = [
         color: 'orange-text-gradient',
       },
     ],
-    image: heyquiz, 
+    image: heyquiz,
     sourceCodeLink: 'https://github.com/strivendra002/MyQuiz',
     liveDemoLink: 'https://myquiz-1.onrender.com/',
   },
@@ -260,7 +278,7 @@ const projects: TProject[] = [
         color: 'orange-text-gradient',
       },
     ],
-    image: purepharma, 
+    image: purepharma,
     sourceCodeLink: 'https://github.com/strivendra002/EPharma',
     liveDemoLink: 'https://resilient-mermaid-621bb0.netlify.app/',
   },
@@ -274,11 +292,10 @@ const projects: TProject[] = [
       { name: 'mongodb', color: 'pink-text-gradient' },
       { name: 'express', color: 'orange-text-gradient' },
     ],
-    image: recipeapp, 
+    image: recipeapp,
     sourceCodeLink: 'https://github.com/strivendra002/Recipe-MERN',
     liveDemoLink: 'https://trivendrasrecipes.netlify.app/',
   },
 ];
-
 
 export { services, technologies, experiences, testimonials, projects };

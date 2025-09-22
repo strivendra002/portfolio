@@ -1,10 +1,32 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { styles } from "../../constants/styles";
-import { navLinks } from "../../constants";
-import { logo, menu, close } from "../../assets";
-import { config } from "../../constants/config";
+import { styles } from '../../constants/styles';
+import { navLinks } from '../../constants';
+import { menu, close } from '../../assets';
+import { config } from '../../constants/config';
+
+// ✅ Resume links
+const viewUrl =
+  'https://drive.google.com/file/d/1p1c_LK4eIq7d60Vbri8bkuC4g4XOUptj/view?usp=sharing';
+const downloadUrl =
+  'https://drive.google.com/uc?export=download&id=1p1c_LK4eIq7d60Vbri8bkuC4g4XOUptj';
+
+// ✅ Resume handler
+const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault();
+
+  // Open resume in new tab
+  window.open(viewUrl, '_blank');
+
+  // Trigger download with filename
+  const link = document.createElement('a');
+  link.href = downloadUrl;
+  link.download = 'Trivendra-Kumar-resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 const Navbar = () => {
   const [active, setActive] = useState<string | null>();
@@ -18,21 +40,20 @@ const Navbar = () => {
         setScrolled(true);
       } else {
         setScrolled(false);
-        setActive("");
+        setActive('');
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     const navbarHighlighter = () => {
-      const sections = document.querySelectorAll("section[id]");
+      const sections = document.querySelectorAll('section[id]');
 
-      sections.forEach((current) => {
-        const sectionId = current.getAttribute("id");
+      sections.forEach(current => {
+        const sectionId = current.getAttribute('id');
         // @ts-ignore
         const sectionHeight = current.offsetHeight;
-        const sectionTop =
-          current.getBoundingClientRect().top - sectionHeight * 0.2;
+        const sectionTop = current.getBoundingClientRect().top - sectionHeight * 0.2;
 
         if (sectionTop < 0 && sectionTop + sectionHeight > 0) {
           setActive(sectionId);
@@ -40,23 +61,22 @@ const Navbar = () => {
       });
     };
 
-    window.addEventListener("scroll", navbarHighlighter);
+    window.addEventListener('scroll', navbarHighlighter);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("scroll", navbarHighlighter);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', navbarHighlighter);
     };
   }, []);
 
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } fixed top-0 z-20 flex w-full items-center py-5 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+      className={`${styles.paddingX} fixed top-0 z-20 flex w-full items-center py-5 ${
+        scrolled ? 'bg-primary' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
+        {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -64,25 +84,33 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt="logo" className="h-9 w-9 object-contain" />
-          <p className="flex cursor-pointer text-[18px] font-bold text-white ">
+          {/* <img src={logo} alt="logo" className="h-9 w-9 object-contain" /> */}
+          <p className="flex cursor-pointer text-[18px] font-bold text-white">
             {config.html.title}
           </p>
         </Link>
 
+        {/* Desktop Menu */}
         <ul className="hidden list-none flex-row gap-10 sm:flex">
-          {navLinks.map((nav) => (
+          {navLinks.map(nav => (
             <li
               key={nav.id}
               className={`${
-                active === nav.id ? "text-white" : "text-secondary"
+                active === nav.id ? 'text-white' : 'text-secondary'
               } cursor-pointer text-[18px] font-medium hover:text-white`}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              {nav.id === 'resume' ? (
+                <a href={viewUrl} onClick={handleResumeClick} className="cursor-pointer">
+                  {nav.title}
+                </a>
+              ) : (
+                <a href={`#${nav.id}`}>{nav.title}</a>
+              )}
             </li>
           ))}
         </ul>
 
+        {/* Mobile Menu */}
         <div className="flex flex-1 items-center justify-end sm:hidden">
           <img
             src={toggle ? close : menu}
@@ -93,21 +121,25 @@ const Navbar = () => {
 
           <div
             className={`${
-              !toggle ? "hidden" : "flex"
+              !toggle ? 'hidden' : 'flex'
             } black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-[140px] rounded-xl p-6`}
           >
             <ul className="flex flex-1 list-none flex-col items-start justify-end gap-4">
-              {navLinks.map((nav) => (
+              {navLinks.map(nav => (
                 <li
                   key={nav.id}
                   className={`font-poppins cursor-pointer text-[16px] font-medium ${
-                    active === nav.id ? "text-white" : "text-secondary"
+                    active === nav.id ? 'text-white' : 'text-secondary'
                   }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                  }}
+                  onClick={() => setToggle(!toggle)}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  {nav.id === 'resume' ? (
+                    <a href={viewUrl} onClick={handleResumeClick} className="cursor-pointer">
+                      {nav.title}
+                    </a>
+                  ) : (
+                    <a href={`#${nav.id}`}>{nav.title}</a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -1,12 +1,12 @@
-import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
-import { BiLinkExternal, github } from "../../assets";
-import { SectionWrapper } from "../../hoc";
-import { projects } from "../../constants";
-import { fadeIn } from "../../utils/motion";
-import { config } from "../../constants/config";
-import { Header } from "../atoms/Header";
-import { TProject } from "../../types";
+import Tilt from 'react-parallax-tilt';
+import { motion } from 'framer-motion';
+import { BiLinkExternal, github } from '../../assets';
+import { SectionWrapper } from '../../hoc';
+import { projects } from '../../constants';
+import { fadeIn } from '../../utils/motion';
+import { config } from '../../constants/config';
+import { Header } from '../atoms/Header';
+import { TProject } from '../../types';
 
 const ProjectCard: React.FC<{ index: number } & TProject> = ({
   index,
@@ -18,38 +18,24 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
   liveDemoLink, // ✅ add liveDemoLink from TProject
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        glareEnable
-        tiltEnable
-        tiltMaxAngleX={30}
-        tiltMaxAngleY={30}
-        glareColor="#aaa6c3"
-      >
+    <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
+      <Tilt glareEnable tiltEnable tiltMaxAngleX={30} tiltMaxAngleY={30} glareColor="#aaa6c3">
         <div className="bg-tertiary w-full rounded-2xl p-5 sm:w-[300px]">
           <div className="relative h-[230px] w-full">
-            <img
-              src={image}
-              alt={name}
-              className="h-full w-full rounded-2xl object-cover"
-            />
+            <img src={image} alt={name} className="h-full w-full rounded-2xl object-cover" />
             <div className="card-img_hover absolute inset-0 m-3 flex gap-2 justify-end">
               {/* GitHub Icon */}
               <div
-                onClick={() => window.open(sourceCodeLink, "_blank")}
+                onClick={() => window.open(sourceCodeLink, '_blank')}
                 className="black-gradient flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
               >
-                <img
-                  src={github}
-                  alt="github"
-                  className="h-1/2 w-1/2 object-contain"
-                />
+                <img src={github} alt="github" className="h-1/2 w-1/2 object-contain" />
               </div>
 
               {/* Live Demo Icon */}
               {liveDemoLink && (
                 <div
-                  onClick={() => window.open(liveDemoLink, "_blank")}
+                  onClick={() => window.open(liveDemoLink, '_blank')}
                   className="green-gradient flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
                 >
                   <img
@@ -66,7 +52,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
             <p className="text-secondary mt-2 text-[14px]">{description}</p>
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
-            {tags.map((tag) => (
+            {tags.map(tag => (
               <p key={tag.name} className={`text-[14px] ${tag.color}`}>
                 #{tag.name}
               </p>
@@ -78,7 +64,6 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
   );
 };
 
-
 const Works = () => {
   return (
     <>
@@ -86,14 +71,14 @@ const Works = () => {
 
       <div className="flex w-full">
         <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
+          variants={fadeIn('', '', 0.1, 1)}
           className="text-secondary mt-3 max-w-3xl text-[17px] leading-[30px]"
         >
           {config.sections.works.content}
         </motion.p>
       </div>
 
-      <div className="mt-20 flex flex-wrap gap-7">
+      <div className="mt-20 flex flex-wrap gap-7" id="projects">
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
@@ -102,4 +87,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, '');
