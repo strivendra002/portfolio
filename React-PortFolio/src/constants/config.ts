@@ -50,7 +50,7 @@ export const config: TConfig = {
   },
   contact: {
     p: 'Get in touch',
-    h2: 'Contact.',
+    h2: 'Contact',
     form: {
       name: {
         span: 'Your Name',
@@ -66,7 +66,7 @@ export const config: TConfig = {
   sections: {
     about: {
       p: 'Introduction',
-      h2: 'Overview.',
+      h2: 'Overview',
       content: `I specialize in designing and delivering robust digital products using the MERN stack,
        blending clean code with real-world impact.
         My journey bridges a B.Tech in Computer Science with hands-on experience honed at Masai School, 
@@ -76,7 +76,7 @@ Additionally, I gained around 7 months of professional experience as an Associat
     },
     experience: {
       p: 'What I have done so far',
-      h2: 'Work Experience.',
+      h2: 'Work Experience',
     },
     feedbacks: {
       p: 'What others say',
@@ -84,7 +84,7 @@ Additionally, I gained around 7 months of professional experience as an Associat
     },
     works: {
       p: 'My work',
-      h2: 'Projects.',
+      h2: 'Projects',
       content: `Following projects showcases my skills and experience through
     real-world examples of my work. Each project is briefly described with
     links to code repositories and live demos in it. It reflects my

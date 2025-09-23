@@ -259,7 +259,7 @@ const projects: TProject[] = [
   {
     name: 'Pure Pharma',
     description:
-      'An e-commerce pharma application developed with a team using the MERN stack. Includes AI-powered chatbot, OCR prescription scanning, secure authentication, and seamless shopping experience.',
+      'An e-commerce pharma application developed with a team using the MERN stack. Includes AI-powered chatbot, OCR prescription scanning, Secure authentication and seamless shopping experience.',
     tags: [
       {
         name: 'react',
@@ -273,10 +273,10 @@ const projects: TProject[] = [
         name: 'mongodb',
         color: 'pink-text-gradient',
       },
-      {
-        name: 'tailwind',
-        color: 'orange-text-gradient',
-      },
+      // {
+      //   name: 'tailwind',
+      //   color: 'orange-text-gradient',
+      // },
     ],
     image: purepharma,
     sourceCodeLink: 'https://github.com/strivendra002/EPharma',

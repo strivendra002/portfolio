@@ -48,14 +48,27 @@ const About = () => {
     <>
       <Header useMotion={true} {...config.sections.about} />
 
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="text-secondary mt-4 max-w-3xl text-[17px] leading-[30px]"
-      >
-        {config.sections.about.content}
-      </motion.p>
+      {/* New wrapper for photo + text */}
+      <div className="mt-8 flex flex-col md:flex-row items-center md:items-start gap-8">
+        {/* Photo */}
+        <motion.img
+          src="/profile.png" // 👉 place your photo in /public/profile.jpg
+          alt="Trivendra Kumar"
+          variants={fadeIn("left", "spring", 0.2, 0.75)}
+          className="w-50 h-48 rounded-full object-cover shadow-lg border-4 border-white"
+        />
 
-      <div className="mt-20 flex flex-wrap gap-10 max-sm:justify-center">
+        {/* About text */}
+        <motion.p
+          variants={fadeIn("", "", 0.3, 1)}
+          className="text-secondary max-w-3xl text-[17px] leading-[30px]"
+        >
+          {config.sections.about.content}
+        </motion.p>
+      </div>
+
+      {/* Services */}
+      <div className="mt-20 flex flex-wrap gap-10 justify-center">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
