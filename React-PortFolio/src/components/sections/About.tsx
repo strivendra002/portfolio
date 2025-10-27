@@ -52,7 +52,7 @@ const About = () => {
       <div className="mt-8 flex flex-col md:flex-row items-center md:items-start gap-8">
         {/* Photo */}
         <motion.img
-          src="/profile.png" // 👉 place your photo in /public/profile.jpg
+          src="/profile.png" 
           alt="Trivendra Kumar"
           variants={fadeIn("left", "spring", 0.2, 0.75)}
           className="w-50 h-48 rounded-full object-cover shadow-lg border-4 border-white"
