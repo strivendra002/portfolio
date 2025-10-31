@@ -8,11 +8,12 @@ import { config } from '../../constants/config';
 
 // ✅ Resume links
 const viewUrl =
-  'https://drive.google.com/file/d/1wqPzhvHjThkLdaC8CwT37KGgTC9Ox8_b/view?usp=sharing';
+  'https://drive.google.com/file/d/1OsMpqwppRcI61tqUILe_v_g85mIlTpUh/view?usp=sharing';
 const downloadUrl =
-  'https://drive.google.com/uc?export=download&id=1wqPzhvHjThkLdaC8CwT37KGgTC9Ox8_b';
+  'https://drive.google.com/uc?export=download&id=1OsMpqwppRcI61tqUILe_v_g85mIlTpUh';
   //'https://drive.google.com/file/d/1NmYtgO7PYepSC0Szl9u2n-r6MTTBzG3X/view?usp=sharing'
   //https://drive.google.com/file/d/1wqPzhvHjThkLdaC8CwT37KGgTC9Ox8_b/view?usp=sharing
+  //https://drive.google.com/file/d/1OsMpqwppRcI61tqUILe_v_g85mIlTpUh/view?usp=sharing
 
 // ✅ Resume handler
 const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

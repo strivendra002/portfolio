@@ -166,12 +166,12 @@ const experiences: TExperience[] = [
     companyName: 'Areness',
     icon: areness3,
     iconBg: '#E6DEDD',
-    date: 'Sep 2025 -  Present',
+    date: 'March 2025 -  Oct 2025',
     points: [
-      'Working on CMS (Case Management System) including feature development, debugging, optimization, and web scraping to streamline workflows.',
-      'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
-      'Implementing responsive design and ensuring cross-browser compatibility.',
-      'Participating in code reviews and providing constructive feedback to other developers.',
+      'Work on CMS (Case Management System) including feature development, debugging, optimization, and web scraping to streamline workflows.',
+      'Collaborate with cross-functional teams including designers, product managers, and other developers to create high-quality products.',
+      'Implement responsive design and ensuring cross-browser compatibility.',
+      'Participate in code reviews and providing constructive feedback to other developers.',
     ],
   },
   // {

@@ -152,9 +152,9 @@ import { config } from '../../constants/config';
 
 const ResumeLink: React.FC = () => {
   const viewUrl =
-    'https://drive.google.com/file/d/1wqPzhvHjThkLdaC8CwT37KGgTC9Ox8_b/view?usp=sharing';
+    'https://drive.google.com/file/d/1OsMpqwppRcI61tqUILe_v_g85mIlTpUh/view?usp=sharing';
   const downloadUrl =
-    'https://drive.google.com/uc?export=download&id=1wqPzhvHjThkLdaC8CwT37KGgTC9Ox8_b';
+    'https://drive.google.com/uc?export=download&id=1OsMpqwppRcI61tqUILe_v_g85mIlTpUh';
 
   const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
